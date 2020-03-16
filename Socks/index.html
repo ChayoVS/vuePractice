@@ -18,6 +18,26 @@
                 <p v-if="inventory > 10">In Stock</p>
                 <p v-else-if="inventory <= 10 && inventory >0 ">Almost sold out</p>
                 <p v-else="">Out of Stock</p>
+
+                <ul>
+                    <li v-for="detail of details">{{ detail }}</li>
+                </ul>
+
+                <div v-for="variant of variants" :key="variant.variantId">
+                    <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }} </p>
+                </div>
+
+                <button v-on:click="addToCart">Add to Cart</button>
+
+                <button v-on:click="removeToCart">Remove to cart</button>
+
+                <div class="cart">
+                    <p>Cart({{ cart }})</p>
+                </div>
+                
+                <br>
+                <br>
+
                 <a :href="link" target="_blank">More products like this</a>
             </div>
         </div>
