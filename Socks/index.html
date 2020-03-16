@@ -13,7 +13,7 @@
                 <img v-bind:src="image" alt="socks-vue">
             </div>
             <div class="product-info">
-                <h1>{{ product }}</h1>
+                <h1>{{ title }}</h1>
                 <p>{{ description }}</p>
                 <p v-if="inStock">In Stock</p>
                 <p v-else="{ outOfStock: !inStock }">Out of Stock</p>
@@ -22,11 +22,11 @@
                     <li v-for="detail of details">{{ detail }}</li>
                 </ul>
 
-                <div v-for="variant of variants" 
+                <div v-for="(variant, index) of variants" 
                      :key="variant.variantId"
                      class="color-box"
                      :style="{ backgroundColor: variant.variantColor }"
-                     @mouseover="updateProduct(variant.variantImage)">
+                     @mouseover="updateProduct(index)">
                 </div>
 
                 <button v-on:click="addToCart" 
