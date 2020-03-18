@@ -1,5 +1,5 @@
 Vue.component('contador', {
-    template: //html
+    template: /*html*/
     `
     <div>
         <h3>{{ numero }}</h3>
